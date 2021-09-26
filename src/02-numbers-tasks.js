@@ -141,7 +141,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-  return parseInt(value);
+  return parseFloat(value);
 }
 
 /**
@@ -204,7 +204,7 @@ function isPrime(n) {
     return false;
   }
   const s = Math.sqrt(n);
-  for (let i = 2; i <= s; i++) {
+  for (let i = 2; i <= s; i + 1) {
     if (n % i === 0 && n > i) {
       return false;
     }
@@ -229,7 +229,7 @@ function isPrime(n) {
  */
 function toNumber(value, def) {
   if ((typeof value) === 'string') {
-    const a = parseInt(value);
+    const a = parseFloat(value);
     if (a === 'NaN') {
       return def;
     }

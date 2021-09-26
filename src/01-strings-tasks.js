@@ -53,7 +53,7 @@ function getStringLength(value) {
  */
 function getStringFromTemplate(firstName, lastName) {
   const space = ` ${lastName}`;
-  return `Hello ${firstName + space}`;
+  return `Hello, ${firstName + space}!`;
 }
 
 /**
@@ -67,7 +67,9 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  return value.replace('Hello, ', '');
+  const a = value.replace('Hello, ', '');
+  const b = a.replace('!', '');
+  return b;
 }
 
 /**
@@ -207,14 +209,14 @@ function extractEmails(str) {
 function getRectangleString(width, height) {
   let topline = '';
   topline += '┌';
-  for (let i = 1; i < width - 1; i++) {
+  for (let i = 1; i < width - 1; i + 1) {
     topline += '─';
   }
   topline += '┐\n';
 
   let bottomline = '';
   bottomline += '└';
-  for (let i = 1; i < width - 1; i++) {
+  for (let i = 1; i < width - 1; i + 1) {
     bottomline += '─';
   }
   bottomline += '┘';
@@ -223,7 +225,7 @@ function getRectangleString(width, height) {
   }
   let middle = '';
   middle += '│';
-  for (let i = 1; i < width - 1; i++) {
+  for (let i = 1; i < width - 1; i + 1) {
     middle += ' ';
   }
   middle += '│\n';
