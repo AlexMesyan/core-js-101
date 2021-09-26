@@ -18,9 +18,8 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
-function concatenateStrings(value1,value2) {
+function concatenateStrings(value1, value2) {
   return value1.concat(value2);
-  console.log(value1.concat(value2));
 }
 
 
@@ -37,7 +36,6 @@ function concatenateStrings(value1,value2) {
  */
 function getStringLength(value) {
   return value.length;
-  console.log(value.length);
 }
 
 /**
@@ -53,10 +51,9 @@ function getStringLength(value) {
  *   'John','Doe'      => 'Hello, John Doe!'
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
- function getStringFromTemplate(firstName, lastName) {   
-  const _space = ' ' + lastName; 
-  console.log(`Hello ${firstName + _space}`);
-  return `Hello ${firstName + _space}`;    
+function getStringFromTemplate(firstName, lastName) {
+  const space = ` ${lastName}`;
+  return `Hello ${firstName + space}`;
 }
 
 /**
@@ -69,9 +66,8 @@ function getStringLength(value) {
  *   'Hello, John Doe!' => 'John Doe'
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
- function extractNameFromTemplate(value) {
-  return value.replace('Hello, ','');
-  console.log(value.replace('Hello, ',''));
+function extractNameFromTemplate(value) {
+  return value.replace('Hello, ', '');
 }
 
 /**
@@ -84,9 +80,8 @@ function getStringLength(value) {
  *   'John Doe'  => 'J'
  *   'cat'       => 'c'
  */
- function getFirstChar(value) {
+function getFirstChar(value) {
   return value.charAt(0);
-  console.log(value.charAt(0));
 }
 
 /**
@@ -100,8 +95,7 @@ function getStringLength(value) {
  *   'cat'              => 'cat'
  *   '\tHello, World! ' => 'Hello, World!'
  */
- function removeLeadingAndTrailingWhitespaces(value) {
-  console.log(value.trim());
+function removeLeadingAndTrailingWhitespaces(value) {
   return value.trim();
 }
 
@@ -116,8 +110,7 @@ function getStringLength(value) {
  *   'A', 5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
- function repeatString(value, count) {
-  console.log(value.repeat(count));
+function repeatString(value, count) {
   return value.repeat(count);
 }
 
@@ -133,8 +126,7 @@ function getStringLength(value) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
- function removeFirstOccurrences(str, value) {
-  console.log(str.replace(value, ''));
+function removeFirstOccurrences(str, value) {
   return str.replace(value, '');
 }
 
@@ -149,10 +141,9 @@ function getStringLength(value) {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
- function unbracketTag(str) {
-  const _first = str.replace('<', '');
-  console.log(_first.replace('>', ''));
-  return _first.replace('>', '');
+function unbracketTag(str) {
+  const first = str.replace('<', '');
+  return first.replace('>', '');
 }
 
 
@@ -166,8 +157,7 @@ function getStringLength(value) {
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
- function convertToUpperCase(str) {
-  console.log(str.toUpperCase());
+function convertToUpperCase(str) {
   return str.toUpperCase();
 }
 
@@ -187,8 +177,7 @@ function getStringLength(value) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
- function extractEmails(str) {
-  console.log(str.split(';'));
+function extractEmails(str) {
   return str.split(';');
 }
 
@@ -215,32 +204,30 @@ function getStringLength(value) {
  *             '└──────────┘\n'
  *
  */
- function getRectangleString(width, height) {
+function getRectangleString(width, height) {
   let topline = '';
   topline += '┌';
-  for(let i = 1; i < width-1; i ++) {
-      topline+= '─'; 
+  for (let i = 1; i < width - 1; i++) {
+    topline += '─';
   }
   topline += '┐\n';
 
   let bottomline = '';
   bottomline += '└';
-  for(let i = 1; i < width-1; i ++) {
-      bottomline+= '─'; 
+  for (let i = 1; i < width - 1; i++) {
+    bottomline += '─';
   }
   bottomline += '┘';
-  if(height <= 2) {
-      console.log(topline + bottomline);
-      return topline + bottomline;
+  if (height <= 2) {
+    return topline + bottomline;
   }
   let middle = '';
   middle += '│';
-  for(let i = 1; i < width-1; i ++) {
-      middle+= ' '; 
+  for (let i = 1; i < width - 1; i++) {
+    middle += ' ';
   }
   middle += '│\n';
-  console.log(topline + middle.repeat(height) + bottomline);
-  return topline + middle.repeat(height - 2) + bottomline;    
+  return topline + middle.repeat(height - 2) + bottomline;
 }
 
 
@@ -261,11 +248,10 @@ function getStringLength(value) {
  *
  */
 function encodeToRot13(str) {
-  var input     = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  var output    = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
-  var index     = x => input.indexOf(x);
-  var translate = x => index(x) > -1 ? output[index(x)] : x;
-  console.log(str.split('').map(translate).join(''));
+  const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  const index = (x) => input.indexOf(x);
+  const translate = (x) => (index(x) > -1 ? output[index(x)] : x);
   return str.split('').map(translate).join('');
 }
 
@@ -282,16 +268,12 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
- function isString(value) {
+function isString(value) {
   const test = value;
-  if((typeof test) == 'string'){
-      console.log(true);
-      return true;
+  if ((typeof test) === 'string') {
+    return true;
   }
-  else {
-      console.log(false);
-      return false;
-  }
+  return false;
 }
 
 
@@ -319,13 +301,12 @@ function encodeToRot13(str) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
- function getCardId(value) {
-  const deck = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
-                'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
-                'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
-                'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
-  console.log(deck.indexOf(value));    
-  return deck.indexOf(value);   
+function getCardId(value) {
+  const deck = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+    'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
+    'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+    'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
+  return deck.indexOf(value);
 }
 
 

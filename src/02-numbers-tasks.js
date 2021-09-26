@@ -19,10 +19,9 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
- function getRectangleArea(width, height) {
+function getRectangleArea(width, height) {
   return width * height;
-  console.log(width * height);
- }
+}
 
 /**
  * Returns a circumference of circle given by radius.
@@ -35,9 +34,8 @@
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
- function getCicleCircumference(radius) {
+function getCicleCircumference(radius) {
   return 2 * Math.PI * radius;
-  console.log(2 * Math.PI * radius);
 }
 
 /**
@@ -52,9 +50,8 @@
  *  10, 0  => 5
  *  -3, 3  => 0
  */
- function getAverage(value1, value2) {
-  return (value1+value2)/2;
-  console.log((value1+value2)/2);
+function getAverage(value1, value2) {
+  return (value1 + value2) / 2;
 }
 
 /**
@@ -72,9 +69,8 @@
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
- function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  console.log(Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)));
-  return (Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)));
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  return (Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
 }
 
 /**
@@ -89,9 +85,8 @@
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
- function getLinearEquationRoot(a, b) {
-  console.log((0 - b)/a);
-  return (0 - b)/a;
+function getLinearEquationRoot(a, b) {
+  return (0 - b) / a;
 }
 
 
@@ -113,8 +108,7 @@
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
- function getAngleBetweenVectors(x1, y1, x2, y2) {
-  console.log(Math.atan2(y2 - y1, x2 - x1));
+function getAngleBetweenVectors(x1, y1, x2, y2) {
   return Math.atan2(y2 - y1, x2 - x1);
 }
 
@@ -130,8 +124,7 @@
  *     5     => 5
  *     0     => 0
  */
- function getLastDigit(value) {
-  console.log(value % 10);
+function getLastDigit(value) {
   return value % 10;
 }
 
@@ -147,8 +140,7 @@
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
- function parseNumberFromString(value) {
-  console.log(parseInt(value));
+function parseNumberFromString(value) {
   return parseInt(value);
 }
 
@@ -165,8 +157,8 @@
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
- function getParallelipidedDiagonal(a, b, c) {
-  console.log(Math.sqrt((a*a)+(b*b)+(c*c)));
+function getParallelipidedDiagonal(a, b, c) {
+  return Math.sqrt((a * a) + (b * b) + (c * c));
 }
 
 /**
@@ -186,8 +178,7 @@
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
- function roundToPowerOfTen(num, pow) {
-  console.log(num.toFixed(pow));
+function roundToPowerOfTen(num, pow) {
   return num.toFixed(pow);
 }
 
@@ -208,17 +199,17 @@
  *   16 => false
  *   17 => true
  */
- function isPrime(n) {
-  if(n <= 1){
+function isPrime(n) {
+  if (n <= 1) {
+    return false;
+  }
+  const s = Math.sqrt(n);
+  for (let i = 2; i <= s; i++) {
+    if (n % i === 0 && n > i) {
       return false;
     }
-    const s = Math.sqrt(n);
-     for (let i = 2; i <= s; i++){
-       if(n % i == 0 && n > i){
-          return false;
-      }
-     }
-      return true;
+  }
+  return true;
 }
 
 /**
@@ -236,20 +227,18 @@
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
- function toNumber(value, def) {
-  if((typeof value) == 'string'){
-    let a = parseInt(value);
-      if(a == "NaN"){
-        return def;
-      }
-      return a;
-  }
-  if((typeof value) == 'number'){
-      return value;
-  }
-  else{
+function toNumber(value, def) {
+  if ((typeof value) === 'string') {
+    const a = parseInt(value);
+    if (a === 'NaN') {
       return def;
+    }
+    return a;
   }
+  if ((typeof value) === 'number') {
+    return value;
+  }
+  return def;
 }
 
 module.exports = {
