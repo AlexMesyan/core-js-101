@@ -51,8 +51,16 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+  if ((value1 > 0 && value2 < 0) || (value1 < 0 && value2 > 0)) {
+    return (value1 + value2) / 2;
+  }
+  const min = Math.min(value1, value2);
+  const minAbs = Math.min(Math.abs(value1), Math.abs(value2));
+  const maxAbs = Math.max(Math.abs(value1), Math.abs(value2));
+  const diff = maxAbs - minAbs;
+  return min + (diff / 2);
 }
+
 
 /**
  * Returns a distance beetween two points by cartesian coordinates.
@@ -109,7 +117,7 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  return Math.atan2(y2 - y1, x2 - x1);
+  return Math.tan(y2 - y1, x2 - x1);
 }
 
 /**
@@ -230,14 +238,9 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  if (n <= 1) {
-    return false;
-  }
-  const s = Math.sqrt(n);
-  for (let i = 2; i <= s; i + 1) {
-    if (n % i === 0 && n > i) {
-      return false;
-    }
+  if (n <= 1) return false;
+  for (let x = 2; x <= Math.sqrt(n); x += 1) {
+    if (n % x === 0) return false;
   }
   return true;
 }
@@ -260,13 +263,16 @@ function isPrime(n) {
 function toNumber(value, def) {
   if ((typeof value) === 'string') {
     const a = parseFloat(value);
-    if (a === 'NaN') {
+    if (Number.isNaN(a)) {
       return def;
     }
     return a;
   }
   if ((typeof value) === 'number') {
     return value;
+  }
+  if (value instanceof Number) {
+    return value + 0;
   }
   return def;
 }

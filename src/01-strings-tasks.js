@@ -222,11 +222,11 @@ function getRectangleString(width, height) {
   bottomline += '└';
   const c = '─';
   if (width <= 2) {
-    bottomline += '┘';
+    bottomline += '┘\n';
   }
   if (width > 2) {
     bottomline += c.repeat(width - 2);
-    bottomline += '┘';
+    bottomline += '┘\n';
   }
 
   if (height <= 2) {
@@ -283,8 +283,13 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
+
 function isString(value) {
-  if ((typeof value) === 'string') {
+  const a = typeof value;
+  if (a === 'string') {
+    return true;
+  }
+  if (value instanceof String) {
     return true;
   }
   return false;
