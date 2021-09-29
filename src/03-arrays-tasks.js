@@ -388,26 +388,15 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
+
 function get3TopItems(arr) {
-  const temparr = arr;
-  const result = [];
-  const firstmax = Math.max(...temparr);
-  result.push(firstmax);
-  const firstindex = temparr.indexOf(firstmax);
-  if (firstindex > -1) {
-    temparr.splice(firstindex, 1);
+  const result = arr;
+  result.sort((a, b) => b - a);
+  if (result.length >= 3) {
+    result.length = 3;
   }
-  const secondmax = Math.max(...temparr);
-  result.push(secondmax);
-  const secondindex = temparr.indexOf(secondmax);
-  if (secondindex > -1) {
-    temparr.splice(secondindex, 1);
-  }
-  const thirdmax = Math.max(...temparr);
-  result.push(thirdmax);
   return result;
 }
-
 
 /**
  * Returns the number of positive numbers from specified array
@@ -428,7 +417,7 @@ function getPositivesCount(arr) {
     if (x > 0) {
       result.push(x);
     }
-    return result.length;
+    return arr;
   });
   return result.length;
 }
